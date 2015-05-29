@@ -1,0 +1,17 @@
+
+<div class="pf-video-player">
+	<div class="frame">
+		<i class="fa fa-spin fa-circle-o-notch"></i>
+		<script>
+			var playVideo = {{ {play: video.html}|json_encode }};
+			$Behavior.playVideo = function(event) {
+				delete $Behavior.playVideo;
+				var f = $('.frame');
+				f.html(playVideo.play);
+			};
+		</script>
+	</div>
+	<div class="comments">
+		{{ comments() }}
+	</div>
+</div>

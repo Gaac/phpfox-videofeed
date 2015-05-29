@@ -1,0 +1,10 @@
+<section class="pf-videos clearfix mosaicflow_load" data-width="300">
+	{% for video in videos %}
+	<article>
+		<a href="{{ url('/videos/', video.id) }}" class="no_ajax">
+			<h1>{{ video.title }}</h1>
+			{{ video.image }}
+		</a>
+	</article>
+	{% endfor %}
+</section>

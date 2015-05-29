@@ -1,0 +1,10 @@
+{
+	"id": "Moxi9/VideoFeed",
+	"name": "Video Feed",
+	"icon": "",
+	"version": "1.0",
+	"menu": {
+		"name": "Videos",
+		"url": "/videos"
+	}
+}

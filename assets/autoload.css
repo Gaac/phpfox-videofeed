@@ -1,0 +1,144 @@
+._image__50_square {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  background-size: contain;
+}
+._image_50 {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  background-size: contain;
+}
+._image__200_square {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  background-size: contain;
+}
+._image_200 {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  background-size: contain;
+}
+._image__32_square {
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  background-size: contain;
+}
+._image_32 {
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  background-size: contain;
+}
+.mosaicflow__column {
+  float: left;
+}
+#page_route_videos #content {
+  width: 100%;
+}
+/*
+#pf-video-player {
+	.pf-video-player {
+		.frame {
+			position:absolute;
+			top:0px;
+			left:0px;
+			bottom:0px;
+			right:25%;
+			min-height:0;
+
+			iframe {
+				margin:auto;
+			}
+		}
+
+		.comments {
+			position:absolute;
+			right:0px;
+			top:0px;
+			bottom:0px;
+			width:20%;
+			overflow:auto;
+		}
+	}
+}
+*/
+.pf-video-player .frame {
+  min-height: 480px;
+  position: relative;
+}
+.pf-video-player .frame iframe {
+  width: 100%    !important;
+  height: 100%   !important;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+#pf-video-layer {
+  display: none;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 10000000;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+#pf-video-player {
+  display: none;
+  position: absolute;
+  z-index: 100000000;
+  background: #ffffff;
+  width: 600px;
+  left: 50%;
+  top: 0px;
+  margin-left: -300px;
+  padding-bottom: 40px;
+}
+#pf-video-player .item_bar_flag,
+#pf-video-player .item_bar_flag:hover {
+  left: 10px;
+}
+.pf-videos {
+  visibility: hidden;
+}
+.pf-videos article:hover {
+  transition: all 0.5s ease;
+}
+.pf-videos article:hover h1 {
+  display: block;
+}
+.pf-videos article {
+  padding: 5px;
+  margin: 5px 5px 10px 5px;
+  background: #fff;
+  transition: all 0.5s ease;
+  position: relative;
+  min-width: 150px;
+  min-height: 150px;
+  max-width: 300px;
+}
+.pf-videos article h1 {
+  display: none;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 5px;
+  margin: 5px;
+}
+.pf-videos article img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
