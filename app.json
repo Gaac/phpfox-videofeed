@@ -5,6 +5,7 @@
 	"version": "1.0",
 	"menu": {
 		"name": "Videos",
-		"url": "/videos"
+		"url": "/videos",
+		"icon": "video-camera"
 	}
 }
