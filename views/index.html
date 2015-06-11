@@ -2,8 +2,8 @@
 	{% for video in videos %}
 	<article>
 		<a href="{{ url('/videos/', video.id) }}" class="no_ajax">
-			<h1>{{ video.title }}</h1>
-			{{ video.image }}
+			<h1>{{ video.custom.title }}</h1>
+			{{ video.custom.image }}
 		</a>
 	</article>
 	{% endfor %}
