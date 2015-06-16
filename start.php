@@ -15,6 +15,7 @@
 
 		// Cheat and use the Link service module to grab the HTML data for us
 		$parsed = Link_Service_Link::instance()->getLink($val['url']);
+		/*
 		$id = Link_Service_Process::instance()->add([
 			'status_info' => '',
 			'link' => [
@@ -28,10 +29,21 @@
 				'embed_code' => $parsed['embed_code']
 			]
 		]);
+		*/
+		$Feed = (new \Api\Feed())->post([
+			'type_id' => 'videofeed',
+			'content' => [
+				'url' => $val['url'],
+				'image' => $parsed['default_image'],
+				'title' => $parsed['title'],
+				'description' => $parsed['description'],
+				'embed_code' => $parsed['embed_code']
+			]
+		]);
 
 		// Return a JSON redirect to the browser. This will send the user to the new video they just added
 		return [
-			'redirect' => $Controller->url->make('/videos/' . $id)
+			'redirect' => $Controller->url->make('/videos/' . $Feed->id)
 		];
 	}
 
@@ -50,13 +62,13 @@
 	$video = (new Api\Feed())->get($id);
 
 	// Use the Link service to get the current HTML embed code
-	$response = Link_Service_Link::instance()->getLink($video->custom->external_url);
+	$response = Link_Service_Link::instance()->getLink($video->content->url);
 	$video->html = $response['embed_code'];
 
 	// Set the pages section, title and h1 based on the video details
-	$Controller->title($video->custom->title)
+	$Controller->title($video->content->title)
 		->section('Videos', '/videos')
-		->h1($video->custom->title, '/videos/' . $video->id);
+		->h1($video->content->title, '/videos/' . $video->id);
 
 	// Render the page
 	return $Controller->render('view.html', [
@@ -73,7 +85,7 @@
 		->section('Videos', '/videos')
 		->asset('@static/jquery/plugin/jquery.mosaicflow.min.js');
 
-	$videos = (new Api\Feed())->get(['type_id' => ['link', 'video']]);
+	$videos = (new Api\Feed())->get(['type_id' => 'videofeed']);
 
 	return $Controller->render('index.html', [
 		'videos' => $videos
