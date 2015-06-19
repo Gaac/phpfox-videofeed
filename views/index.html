@@ -1,3 +1,4 @@
+{% if videos %}
 <section class="pf-videos clearfix mosaicflow_load" data-width="300">
 	{% for video in videos %}
 	<article>
@@ -8,3 +9,8 @@
 	</article>
 	{% endfor %}
 </section>
+{% else %}
+<section>
+	No videos have been added. Be the first to <a href="{{ url('/videos/add') }}" class="popup">add one</a>.
+</section>
+{% endif %}
