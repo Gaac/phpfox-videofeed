@@ -15,23 +15,9 @@
 
 		// Cheat and use the Link service module to grab the HTML data for us
 		$parsed = Link_Service_Link::instance()->getLink($val['url']);
-		/*
-		$id = Link_Service_Process::instance()->add([
-			'status_info' => '',
-			'link' => [
-				'url' => $val['url'],
-				'embed_code' => 1,
-				'image' => $parsed['default_image'],
-				'title' => $parsed['title'],
-				'description' => $parsed['description'],
-				'privacy' => 0,
-				'privacy_comment' => 0,
-				'embed_code' => $parsed['embed_code']
-			]
-		]);
-		*/
+
 		$Feed = (new \Api\Feed())->post([
-			'type_id' => 'videofeed',
+			'type_id' => 'PHPfox_VideoFeed',
 			'content' => [
 				'url' => $val['url'],
 				'image' => $parsed['default_image'],
@@ -85,7 +71,7 @@
 		->section('Videos', '/videos')
 		->asset('@static/jquery/plugin/jquery.mosaicflow.min.js');
 
-	$videos = (new Api\Feed())->get(['type_id' => 'videofeed']);
+	$videos = (new Api\Feed())->get(['type_id' => 'PHPfox_VideoFeed']);
 
 	return $Controller->render('index.html', [
 		'videos' => $videos

@@ -16,7 +16,7 @@ $Ready(function() {
 		$('#pf-video-layer, #pf-video-player').fadeOut();
 	});
 
-	$('.pf-videos a, .pf-videos-click').click(function() {
+	$('.pf-videos a, .pf-videos-click, .pf_video_feed .image_load').click(function() {
 		var t = $(this);
 
 		$('#pf-video-layer').show();
@@ -34,14 +34,6 @@ $Ready(function() {
 		});
 
 		return false;
-	});
-
-	$('._app_link:not(.built)').each(function() {
-		var t = $(this), url = PF.url.make('/videos/' + t.data('feed-id'));
-
-		t.addClass('built');
-		t.find('.play_link').attr('onclick', '').attr('href', url).addClass('pf-videos-click').addClass('no_ajax');
-		t.find('.activity_feed_content_link_title').attr('href', url).addClass('pf-videos-click').addClass('no_ajax');
 	});
 
 	// breadcrumbs

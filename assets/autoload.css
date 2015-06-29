@@ -142,3 +142,40 @@
   width: 100%;
   height: auto;
 }
+.pf_video_feed:hover i,
+.pf_video_feed:hover > span {
+  display: block;
+}
+.pf_video_feed {
+  position: relative;
+}
+.pf_video_feed i {
+  transition: all 0.5s ease;
+  display: none;
+  position: absolute;
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  font-size: 30px;
+  margin-left: -15px;
+  margin-top: -15px;
+}
+.pf_video_feed > span {
+  transition: all 0.5s ease;
+  display: none;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 99;
+}
+.pf_video_feed .image_load,
+.pf_video_feed .image_load:hover {
+  display: block;
+  margin-top: 10px;
+  min-height: 360px;
+  max-width: 100%;
+}
