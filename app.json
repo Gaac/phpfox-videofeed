@@ -1,7 +1,7 @@
 {
 	"id": "PHPfox_VideoFeed",
 	"name": "Video Feed",
-	"icon": "",
+	"icon": "http://d2h79mkp7etn4r.cloudfront.net/icon/2015/06/fd24a3c803893f957c2313fe2269ca56.png",
 	"version": "1.0",
 	"menu": {
 		"name": "Videos",
