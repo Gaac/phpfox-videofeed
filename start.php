@@ -71,7 +71,8 @@
 		->section('Videos', '/videos')
 		->asset('@static/jquery/plugin/jquery.mosaicflow.min.js');
 
-	$videos = (new Api\Feed())->get(['type_id' => 'PHPfox_VideoFeed']);
+	$videos = (new Api\Feed())->get(['type_id' => 'PHPfox_VideoFeed', 'limit' => 20]);
+
 
 	return $Controller->render('index.html', [
 		'videos' => $videos

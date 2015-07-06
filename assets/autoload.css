@@ -67,6 +67,13 @@
 	}
 }
 */
+#page_route_videos #content {
+  width: auto;
+  max-width: none;
+}
+#page_route_videos #panels {
+  display: none;
+}
 .pf-video-player .frame {
   min-height: 480px;
   position: relative;

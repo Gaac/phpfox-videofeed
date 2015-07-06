@@ -9,8 +9,11 @@
 	</article>
 	{% endfor %}
 </section>
+	{{ pager() }}
 {% else %}
-<section>
-	No videos have been added. Be the first to <a href="{{ url('/videos/add') }}" class="popup">add one</a>.
-</section>
+	{% if isPager == false %}
+	<section>
+		No videos have been added. Be the first to <a href="{{ url('/videos/add') }}" class="popup">add one</a>.
+	</section>
+	{% endif %}
 {% endif %}
