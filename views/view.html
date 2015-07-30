@@ -1,5 +1,5 @@
 
-<div class="pf-video-player">
+<div class="pf-video-player" data-video-id="{{ videoId }}">
 	<div class="frame">
 		<i class="fa fa-spin fa-circle-o-notch"></i>
 		<script>
@@ -15,3 +15,14 @@
 		{{ comments() }}
 	</div>
 </div>
+<script>
+	$Ready(function() {
+		var t = $('.pf-video-player'), c = $('.comment_mini_link_like ul');
+		if (!t.hasClass('active')) {
+			t.addClass('active');
+			if ($('#pf_admin').length) {
+				c.append('<li><a href="' + PF.url.make('/videos/delete/' + t.data('video-id')) + '" class="no_ajax" onclick="return confirm(\'Are you sure?\');">Delete</a></li>');
+			}
+		}
+	});
+</script>

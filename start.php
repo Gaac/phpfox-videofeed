@@ -58,7 +58,8 @@
 
 	// Render the page
 	return $Controller->render('view.html', [
-		'video' => $video
+		'video' => $video,
+		'videoId' => $id
 	]);
 });
 
@@ -73,8 +74,21 @@
 
 	$videos = (new Api\Feed())->get(['type_id' => 'PHPfox_VideoFeed', 'limit' => 20]);
 
-
 	return $Controller->render('index.html', [
 		'videos' => $videos
 	]);
+});
+
+new Core\Route('/videos/delete/:id', function(\Core\Controller $controller, $id) {
+	\Phpfox::isAdmin(true);
+
+	$video = (new Api\Feed())->get($id);
+	if (!isset($video->id)) {
+		return false;
+	}
+
+	(new Core\Db())->delete(':feed', ['feed_id' => (int) $id]);
+
+	\Phpfox::addMessage(_p('Video successfully deleted!'));
+	$controller->url->send('/videos');
 });
